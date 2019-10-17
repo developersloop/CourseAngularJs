@@ -4,10 +4,11 @@
     'use_strict';
 
     angular.module("fgf")
-    .controller('AlunosController',Controller)
+    .controller('AlunosController',[Controller])
 
     function Controller(
-
+        $scope,
+        AlunosService
     ) {
 
             var vm  = this;
@@ -27,6 +28,8 @@
             //     return media.toFixed(2);
                 
             // }
+
+            console.log(AlunosService);
 
             vm.addAluno = function(obj){
                 obj.media = vm.media(obj); 
