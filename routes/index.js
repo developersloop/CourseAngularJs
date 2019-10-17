@@ -2,27 +2,25 @@
 
 (function(){
 	angular
-	.module("fgf",[
-	 				'ngRoute'
-	])
+	.module("fgf",['ui.router'])
 	.config(config)
 
 
 	function config(
-		$routeProvider
+		$stateProvider,
+		$urlRouterProvider
 	) {
-		 $routeProvider
-		 .when('/home',{
-			   // template:"<h1>Home Page</h1>",
-			   templateUrl:"templates/Alunos.html",
-			   controller:"AlunosController",
-			   controllerAs : 'vm'
-		 })
-		 .when("/contato",{
-			   template:"<h1>adad</h1>"
-		 })
-		 
+		   const homeState =  {
+			name:'home',
+			cache: false,
+			url: '/home',
+			templateUrl:"templates/Alunos.html",
+			controller:"AlunosController",
+			controllerAs : 'vm'
+		}
 	 
-		 $routeProvider.otherwise({redirectTo:"/home"});
+		$urlRouterProvider.otherwise('/home');
+
+		$stateProvider.state(homeState);
 	  }
 })()

@@ -4,13 +4,15 @@
     'use_strict';
 
     angular.module("fgf")
-    .controller('AlunosController',[Controller])
+    .controller('AlunosController',Controller)
+  
 
     function Controller(
         $scope,
         AlunosService
     ) {
 
+        console.log(AlunosService.getNotas());
             var vm  = this;
             vm.titulo = 'Sistema com angular js';
             // objeto de alunos
@@ -29,7 +31,7 @@
                 
             // }
 
-            console.log(AlunosService);
+       
 
             vm.addAluno = function(obj){
                 obj.media = vm.media(obj); 

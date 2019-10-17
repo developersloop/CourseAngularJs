@@ -2,20 +2,11 @@
     'use_strict';
 
     angular
-    .module("default")
-    .factory('AlunosService',ServiceAluno)
+    .module("fgf")
+    .factory('AlunosService',function(){
+           return {
+                getNotas: () => console.log('notas')
+           }
+    })
     
-    
-  function ServiceAluno($http, $localStorage, $sessionStorage) {
-    var service = {};
-
-    service.getAll = getAll;
-
-    function getAll(){
-        return 'teste';
-    }
-
-    return service;
-      
-   }
 })()
