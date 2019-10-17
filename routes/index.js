@@ -18,6 +18,7 @@
 			controller:"AlunosController",
 			controllerAs : 'vm'
 		}
+
 	 
 		$urlRouterProvider.otherwise('/home');
 

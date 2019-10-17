@@ -2,13 +2,13 @@
 
 <h1 class="text-center" style="color:black;" ng-bind="vm.titulo"></h1><br>
 <h1></h1>
-    <div class="col-md-12 offset-md-3">
+    <div class="col-md-12">
         <div class="col-md-4">
             <div class="form-group">
                  <input type="search" class="form-control" ng-model="search.nome" name="busca" id="busca" placeholder="Digite sua busca..">
             </div>
         </div> 
-        <div class="col-md-8">
+        <div class="col-md-12">
             <!-- <div>{{}}</div> -->
                 <table class="table table-striped">
                         <thead>
@@ -29,8 +29,8 @@
                                 <td>{{nt.nota2}}</td>
                                 <td>{{nt.nota3}}</td>
                                 <td>
-                                    <button class="btn btn-secondary btn-xs">Editar</button>
-                                    <button type="button" class="btn btn-secondary btn-xs">Excluir</button>
+                                    <button ng-click="vm.editNotes(nt)" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#editNotes">Editar</button>
+                                    <button ng-click="vm.excluirNotes($index,nt)" type="button" class="btn btn-secondary btn-xs">Excluir</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -39,54 +39,5 @@
         <div class="col-md-2">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Adicionar</button>                
         </div>
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Adicionar</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-                    <form class="needs-validation" novalidate>
-                            <div class="form-row">
-                              <div class="col-md-4 mb-3">
-                                <label for="nome">Nome</label>
-                                <input type="text" class="form-control" id="nome"  ng-model="alunos.nome" required>
-                              </div>
-                              <div class="col-md-4 mb-3">
-                                <label for="email">Email</label>
-                                <input type="email" class="form-control" id="email" ng-model="alunos.email" required>
-                              </div>
-                              <div class="col-md-4 mb-3">
-                                <label for="validationCustomUsername">Nota1</label>
-                                <div class="input-group">
-                                  <input type="text" class="form-control" id="nota1" ng-model="alunos.nota1" required>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="form-row">
-                               <div class="col-md-4 mb-3">
-                                    <label for="validationCustomUsername">Nota2</label>
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" id="nota2" ng-model="alunos.nota2" required>
-                                        </div>
-                               </div>
-                               <div class="col-md-4 mb-3">
-                                    <label for="validationCustomUsername">Nota3</label>
-                                    <div class="input-group">
-                                      <input type="text" class="form-control" id="nota3" ng-model="alunos.nota3" required>
-                                    </div>
-                                </div>
-                            </div>                           
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button ng-click="addAluno(alunos)" class="btn btn-primary">Adicionar</button>
-            </div>
-          </form>
-          </div>
-        </div>
-      </div>
+       <div ng-include="'/templates/Modal/Modal-Add-Notas.html'"></div>
+       <div ng-include="'/templates/Modal/Modal-Edit-Notas.html'"></div>
