@@ -1,7 +1,7 @@
 <div ng-include="'templates/_nav.html'"></div>
 
 <h1 class="text-center" style="color:black;" ng-bind="vm.titulo"></h1><br>
-<h1></h1>
+<!-- <teste></teste> -->
     <div class="col-md-12">
         <div class="col-md-4">
             <div class="form-group">
@@ -22,19 +22,21 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr ng-repeat="nt in vm.alunos | filter:search">
-                                <td>{{nt.nome}}</td>
-                                <td>{{nt.email}}</td>
-                                <td>{{nt.nota1}}</td>
-                                <td>{{nt.nota2}}</td>
-                                <td>{{nt.nota3}}</td>
-                                <td>
-                                    <button ng-click="vm.editNotes(nt)" class="btn btn-secondary btn-xs" data-toggle="modal" data-target="#editNotes">Editar</button>
-                                    <button ng-click="vm.excluirNotes($index,nt)" type="button" class="btn btn-secondary btn-xs">Excluir</button>
-                                </td>
-                            </tr>
+                                <tr ng-repeat="nt in vm.alunos">
+                                        <td>{{nt.nome}}</td>
+                                        <td>{{nt.email}}</td>
+                                        <td>{{nt.nota1}}</td>
+                                        <td>{{nt.nota2}}</td>
+                                        <td>{{nt.nota3}}</td>
+                                        <td>
+                                            <button class="btn btn-secondary btn-sm">Editar</button> 
+                                            <button class="btn btn-secondary btn-sm">Excluir</button>
+                                        </td>
+                                     
                         </tbody>
                     </table>
+                    
+                    <!-- <div>{{bod}}</div> -->
         </div>
         <div class="col-md-2">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Adicionar</button>                

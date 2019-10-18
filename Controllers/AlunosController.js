@@ -21,7 +21,10 @@
             vm.excluirNotes = excluirNotes;
           
             // services
+
             vm.alunos =  AlunosService.getNotas();
+            
+           
 
 
 
